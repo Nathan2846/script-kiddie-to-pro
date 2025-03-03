@@ -23,7 +23,7 @@ class IP:
 
         # Human readable IP addresses
         self.src_address = ipaddress.ip_address(self.src)
-        self.dst_addres = ipaddress.ip_address(self.dst)
+        self.dst_address = ipaddress.ip_address(self.dst)
 
         ## Map protocols to their names
         self.protocol_map = {1:'ICMP', 6:'CP', 17:'UDP'}
@@ -32,7 +32,6 @@ class IP:
         except Exception as e:
             print ('%s No protocol for %s' % (e, self.protocol_num))
             self.protocol = str(self.protocol_num)
-
 def sniff(host):
     if os.name == 'nt':
         socket_protocol = socket.IPPROTO_IP
@@ -69,5 +68,5 @@ if __name__ == '__main__':
     if len(sys.argv) == 2:
         host = sys.argv[1]
     else:
-        host = '127.0.0.1'
+        host = '192.168.126.128'
     sniff(host)
